@@ -1,0 +1,21 @@
+from kiteconnect import KiteConnect
+import os
+
+class ZerodhaBroker:
+
+    def __init__(self):
+        self.kite = KiteConnect(
+            api_key=os.getenv("KITE_API_KEY")
+        )
+
+    def place_buy(self,symbol,qty):
+
+        return self.kite.place_order(
+            variety="regular",
+            exchange="NSE",
+            tradingsymbol=symbol,
+            transaction_type="BUY",
+            quantity=qty,
+            order_type="MARKET",
+            product="CNC"
+        )
