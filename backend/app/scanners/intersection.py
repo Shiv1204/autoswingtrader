@@ -1,5 +1,5 @@
-def find_common(scanner1, scanner2):
+def common_stocks(scanner1, scanner2):
 
     return list(
-        set(scanner1).intersection(scanner2)
+        set(scanner1) & set(scanner2)
     )
