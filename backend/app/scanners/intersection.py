@@ -1,5 +1,6 @@
-def common_stocks(scanner1, scanner2):
+from .dedupe import unique_symbols
 
-    return list(
-        set(scanner1) & set(scanner2)
-    )
+def find_common(scanner1, scanner2):
+    scanner1 = set(unique_symbols(scanner1))
+    scanner2 = set(unique_symbols(scanner2))
+    return sorted(list(scanner1.intersection(scanner2)))
