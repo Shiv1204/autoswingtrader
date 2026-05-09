@@ -1,6 +1,18 @@
 from fastapi import FastAPI
-from .api.signals import router as signal_router
+from app.api.signals import router as signal_router
 
-app = FastAPI()
+app = FastAPI(
+    title="RVSIS Auto Trader"
+)
 
-app.include_router(signal_router)
+app.include_router(
+    signal_router
+)
+
+
+@app.get("/")
+def health():
+
+    return {
+        "status": "running"
+    }
